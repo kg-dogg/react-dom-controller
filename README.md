@@ -10,19 +10,9 @@ class Example extends React.Component {
       w: '',
       h: '',
     },
-    textareaValue: '',
   };
   getRect = (param, { index }) => {
-    const {
-      container: { w, h },
-      textareaValue,
-    } = this.state;
-    const {
-      x, y, width, height,
-    } = param;
-    this.position = {
-      data: `27:${(index + 1)},${(x / w).toFixed(2)},${(y / h).toFixed(2)},${(width / w).toFixed(2)},${(height / h).toFixed(2)},${textareaValue}`,
-    };
+    console.log(param);
   };
   render = () => (
     <DomController
@@ -30,7 +20,7 @@ class Example extends React.Component {
       defaultPosition={{ left: 50, top: 50 }}
       callback={this.getRect}
     >
-      <textarea className="controlled" />
+      <div className="controlled" />
     </DomController>
   );
 }
