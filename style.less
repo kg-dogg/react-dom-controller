@@ -1,0 +1,57 @@
+@dotSize: 7px;
+@dotOffset: -4px;
+.controlled{
+  background-color:transparent;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: move;
+  outline: none;
+  color: #FF4A4A;
+  border: 0;
+  resize: none;
+}
+.controller {
+  user-select:none;
+  position: absolute;
+  box-sizing: border-box;
+  border-style: dashed;
+  border-color: rgba(255,255,255,1);
+  border-width: 1px;
+  background-color: rgba(228,228,228,0.2);
+  text-align: center;
+  z-index: 999;
+  cursor: pointer;
+  transition: background-color .25s;
+  &.selected {
+    border-color: #000;
+    cursor: move;
+    background:rgba(228,228,228,1);
+    .dot {
+      background-color: #000;
+    }
+  }
+  &:hover {
+    background:rgba(228,228,228,1);
+    .dot {
+      background-color: #000;
+    }
+  }
+  .dot {
+    transition: background-color .25s;
+    position: absolute;
+    width: @dotSize;
+    height: @dotSize;
+    background-color: transparent;
+    z-index: 9999;
+    &.top {cursor: n-resize; top: @dotOffset; left: calc(50% - @dotOffset - @dotSize);}
+    &.right {cursor: e-resize; right: @dotOffset; top: calc(50% - @dotOffset - @dotSize);}
+    &.bottom {cursor: s-resize; bottom: @dotOffset; left: calc(50% - @dotOffset - @dotSize);}
+    &.left {cursor: w-resize; left: @dotOffset; top: calc(50% - @dotOffset - @dotSize);}
+    &.top-left {cursor: nw-resize; top: @dotOffset; left: @dotOffset;}
+    &.top-right {cursor: ne-resize;top: @dotOffset;right: @dotOffset;}
+    &.bottom-left {cursor: sw-resize;bottom: @dotOffset;left: @dotOffset;}
+    &.bottom-right {cursor: se-resize;bottom: @dotOffset;right: @dotOffset;}
+  }
+}
